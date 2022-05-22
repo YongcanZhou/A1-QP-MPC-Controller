@@ -152,7 +152,7 @@ void A1RobotControl::static_walking_ctrl(A1CtrlStates &state, double t, double d
     state.counter_static_gait += state.counter_static_gait_speed;
     counter = state.counter_static_gait = std::fmod(state.counter_static_gait, state.counter_per_static_gait);
 
-    if (t < 14.0) // start to walk after 2 seconds
+    if (t < 18.0) // start to walk after 14 seconds
     {
         state.gait_sequence = GAIT_SEQUENCE::STAND;
         counter = state.counter_static_gait = 0.0;
@@ -186,7 +186,7 @@ void A1RobotControl::static_walking_ctrl(A1CtrlStates &state, double t, double d
         
         for (int i = 0; i < NUM_LEG; ++i)
             state.plan_contacts[i] = true;
-
+        
         state.starting_pos_CoM.segment<2>(0) = state.root_pos.segment<2>(0);
         state.starting_vel_CoM.segment<2>(0) = state.root_lin_vel_d.segment<2>(0);
         break;

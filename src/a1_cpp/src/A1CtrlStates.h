@@ -35,7 +35,7 @@ public:
         counter_static_gait = 0;
         counter_static_gait_speed = 0.5;
         counter_per_static_move_com = 480.0;
-        counter_per_static_swing = 220.0;
+        counter_per_static_swing = 200.0;
         counter_per_static_gait = counter_per_static_move_com * 2 + counter_per_static_swing * 4;
         
 
