@@ -176,32 +176,17 @@ bool HardwareA1ROS::main_update(double t, double dt) {
     }
 
     // if(t < 14.0)
-    if( 0 )
-    {
-        _root_control.update_plan(a1_ctrl_states, dt);
-        _root_control.generate_swing_legs_ctrl(a1_ctrl_states, dt);
-    }
-    else
-    {
-        _root_control.static_walking_ctrl(a1_ctrl_states, t, dt);
+    // {
+    //     _root_control.update_plan(a1_ctrl_states, dt);
+    //     _root_control.generate_swing_legs_ctrl(a1_ctrl_states, dt);
+    // }
+    // else
+    // {
         _root_control.select_footholds(a1_ctrl_states, t, dt);
+        _root_control.static_walking_ctrl(a1_ctrl_states, t, dt);
         _root_control.generate_swing_to_dest(a1_ctrl_states, t, dt);
-
-        if(t > 8)
-        std::cout << " movement_mode == 1 ";
-
-        std::cout << " root x = " <<  a1_ctrl_states.root_pos(0) << "/" << a1_ctrl_states.root_pos_d(0) 
-        << " root y = " <<  a1_ctrl_states.root_pos(1) << "/" << a1_ctrl_states.root_pos_d(1)
-        << " root z = " <<  a1_ctrl_states.root_pos(2) << "/" << a1_ctrl_states.root_pos_d(2)
-        // << " vel x_d = " << a1_ctrl_states.root_lin_vel_d(0) 
-        // << " vel y_d = " << a1_ctrl_states.root_lin_vel_d(1) 
-        // << " vel z_d = " << a1_ctrl_states.root_lin_vel_d(2)
-        // << " footx = " << a1_ctrl_states.foot_pos_target_rel(0, 3)
-        // << " footy = " << a1_ctrl_states.foot_pos_target_rel(1, 3)
-        // << " footz = " << a1_ctrl_states.foot_pos_target_rel(2, 3)
-        << std::endl;
-
-    }
+        
+    // }
     
 
     // _root_control.static_walking_ctrl(a1_ctrl_states, t, dt);
